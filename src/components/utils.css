@@ -2,7 +2,7 @@ nav {
     background-image: url('../assets/gradienta-m_-1_v4hs5p.svg');
     background-repeat: no-repeat;
     background-size: cover;
-    height: 8rem;
+    height: 7rem;
   }
 
   nav .flex > div:last-child {
@@ -10,14 +10,13 @@ nav {
   }
 
   .banner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 250px;
+    object-fit: cover;
+    height: 245px;
   }
   
   .burgerMenu {
     background-image: url('../assets/gradienta-m_-1_v4hs5p.svg');
+    background-size: cover;
   }
 
   .footHead {
