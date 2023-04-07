@@ -1,0 +1,27 @@
+nav {
+    background-image: url('../assets/gradienta-m_-1_v4hs5p.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 8rem;
+  }
+
+  nav .flex > div:last-child {
+    margin-left: auto;
+  }
+
+  .banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+  }
+  
+  .burgerMenu {
+    background-image: url('../assets/gradienta-m_-1_v4hs5p.svg');
+  }
+
+  .footHead {
+    font-size: 3rem;
+  }
+
+  
