@@ -24,7 +24,7 @@ const Navbar = () => {
     <nav className="absolute top-0 left-0 w-full z-50">
       <div className="flex items-center justify-between h-16 px-8">
         <div className="flex items-center cursor-pointer">
-            <img src={logo} alt="Risidio" className="h-14 mr-4 ml-10 mt-6" />
+            <img src={logo} alt="Risidio" className="h-14 mr-4 ml-8 mt-6" />
           <div className="flex items-center -ml-20">
             <div className="text-white text-sm mt-24 ">Marketplace</div>
           </div>

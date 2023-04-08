@@ -5,6 +5,7 @@ import icon from '../assets/icon.png'
 
 const Hero = () => {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [showMore, setShowMore] = useState(false);
 
   useEffect(() => {
     const handleResize = () => setScreenWidth(window.innerWidth);
@@ -24,6 +25,10 @@ const Hero = () => {
     zIndex: 10,
   };
 
+  const handleShowMore = () => {
+    setShowMore(!showMore);
+  };
+
   return (
     <div>
       <header>
@@ -35,7 +40,46 @@ const Hero = () => {
           <img className='ml-auto mr-auto -mt-10' src={icon} alt="" />
         </div>
       </header>
-    
+
+      <section className="bg-transparent py-2">
+        <div className="max-w-screen-lg mx-auto">
+          <h2 className="text-xl font-normal text-center mb-4">Artist Name</h2>
+          <div className="text-center">
+            <p className={screenWidth < 640 ? 'text-sm' : 'text-lg'}>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda ab repudiandae, modi provident minus,
+              quidem deserunt maiores commodi necessitatibus voluptatibus alias dolores ratione at suscipit voluptates
+              unde quo perferendis repellat?
+            </p>
+            <br />
+            {showMore ? (
+              <p className={screenWidth < 640 ? 'text-sm' : 'text-lg'}>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda ab repudiandae, modi provident minus,
+                quidem deserunt maiores commodi necessitatibus voluptatibus alias dolores ratione at suscipit voluptates
+                unde quo perferendis repellat? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda ab repudiandae, modi provident minus,
+                quidem deserunt maiores commodi necessitatibus voluptatibus alias dolores ratione at suscipit voluptates
+                unde quo perferendis repellat?
+              </p>
+            ) : null}
+            {showMore ? (
+              <button onClick={handleShowMore} className="text-blue-500">
+                Hidde
+              </button>
+            ) : (
+              <button onClick={handleShowMore} className="text-blue-500">
+                Read More
+              </button>
+            )}
+          </div>
+        </div>
+      </section>
+
+      <section className={`border-2 ${screenWidth < 925 ? 'block' : 'w-1/3'} mx-auto rounded-lg bg-gray-100 py-4`}>
+          <ul className={`grid gap-4 ${screenWidth < 925 ? 'grid-cols-1' : 'grid-cols-3'}`}>
+              <li className='border-r-2'>Floor Price <br /> 2,835 STX</li>
+              <li className='border-r-2'>Owners <br /> 1,236</li>
+              <li className='border-r-2'>Items <br /> 2,500</li>
+          </ul>
+      </section>
     </div>
   )
 }

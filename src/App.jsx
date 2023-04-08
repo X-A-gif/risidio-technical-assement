@@ -2,6 +2,8 @@ import React from 'react'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Hero from './components/Hero'
+import Card from './components/Card'
+import NFT from "./components/NFT";
 
 import './app.css'
 
@@ -11,7 +13,8 @@ const App = () => {
    <div id='app'>
     <Navbar />
     <Hero />
-      <div className='absolute w-full bottom-0'>
+    <NFT />
+      <div className='absolute w-full'>
         <Footer />
       </div>
    </div>
