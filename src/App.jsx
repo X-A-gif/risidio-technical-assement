@@ -13,7 +13,10 @@ const App = () => {
    <div id='app'>
     <Navbar />
     <Hero />
-    <NFT />
+      <div className='flex justify-center items-center '>
+        <NFT />
+      </div>
+
       <div className='absolute w-full'>
         <Footer />
       </div>

@@ -5,18 +5,45 @@ nav {
     height: 7rem;
   }
 
-  nav .flex > div:last-child {
-    margin-left: auto;
-  }
 
   .banner {
     object-fit: cover;
     height: 245px;
   }
   
+  .smaller-logo {
+    height: 10rem;
+  }
+
   .burgerMenu {
     background-image: url('../assets/gradienta-m_-1_v4hs5p.svg');
     background-size: cover;
+  }
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+    margin: 2rem auto;
+    max-width: 1200px;
+    padding: 0 1rem;
+  }
+
+  @media (min-width: 500px) {
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); 
+      margin-bottom: 50px;
+    }
+  }
+
+  @media (max-width: 499px) {
+    .card-container {
+      grid-template-columns: repeat(3, 1fr);
+      justify-content: center; 
+      margin-bottom: 50px;
+    }
   }
 
   .NFT {

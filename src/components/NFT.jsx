@@ -1,88 +1,64 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Card from "./Card";
 
-const ExampleComponent = () => {
-    const randomPrice = Math.floor(Math.random() * 100) + 1;
+const NFT = () => {
+  const [cardsToShow, setCardsToShow] = useState(12);
 
-    const cardData = [
-        {
-          artistName: "John Smith",
-          imageUrl: "https://source.unsplash.com/random/400x400",
-          price: Math.floor(Math.random() * 100) + 1,
-        },
-        {
-          artistName: "Jane Doe",
-          imageUrl: "https://source.unsplash.com/random/400x400",
-          price: Math.floor(Math.random() * 100) + 1,
-        },
-        {
-          artistName: "Bob Johnson",
-          imageUrl: "https://source.unsplash.com/random/400x400",
-          price: Math.floor(Math.random() * 100) + 1,
-        },
-        {
-            artistName: "Bob Johnson",
-            imageUrl: "https://source.unsplash.com/random/400x400",
-            price: Math.floor(Math.random() * 100) + 1,
-          },
-          {
-            artistName: "Bob Johnson",
-            imageUrl: "https://source.unsplash.com/random/400x400",
-            price: Math.floor(Math.random() * 100) + 1,
-          },
-          {
-            artistName: "Bob Johnson",
-            imageUrl: "https://source.unsplash.com/random/400x400",
-            price: Math.floor(Math.random() * 100) + 1,
-          },
-          {
-            artistName: "Jane Doe",
-            imageUrl: "https://source.unsplash.com/random/400x400",
-            price: Math.floor(Math.random() * 100) + 1,
-          },
-          {
-            artistName: "Bob Johnson",
-            imageUrl: "https://source.unsplash.com/random/400x400",
-            price: Math.floor(Math.random() * 100) + 1,
-          },
-          {
-              artistName: "Bob Johnson",
-              imageUrl: "https://source.unsplash.com/random/400x400",
-              price: Math.floor(Math.random() * 100) + 1,
-            },
-            {
-              artistName: "Bob Johnson",
-              imageUrl: "https://source.unsplash.com/random/400x400",
-              price: Math.floor(Math.random() * 100) + 1,
-            },
-            {
-              artistName: "Bob Johnson",
-              imageUrl: "https://source.unsplash.com/random/400x400",
-              price: Math.floor(Math.random() * 100) + 1,
-            },
-            {
-              artistName: "Bob Johnson",
-              imageUrl: "https://source.unsplash.com/random/400x400",
-              price: Math.floor(Math.random() * 100) + 1,
-            },
-      ];
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 428) {
+        setCardsToShow(3);
+      } else {
+        setCardsToShow(12);
+      }
+    };
 
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const generateCardData = (count) => {
+    const cardData = [];
+    const artistNames = ["John Smith", "Jane Doe", "Bob Johnson"];
+    const collectionNames = ["Super NFT", "Cool Collection", null];
+
+    for (let i = 0; i < count; i++) {
+      const randomPrice = Math.floor(Math.random() * 100) + 1;
+      const randomArtistName = artistNames[Math.floor(Math.random() * artistNames.length)];
+      const randomCollectionName = collectionNames[Math.floor(Math.random() * collectionNames.length)];
+
+      cardData.push({
+        artistName: randomArtistName,
+        imageUrl: `https://source.unsplash.com/random/400x400?nft=${i}`,
+        price: randomPrice,
+        stx: randomPrice,
+        collectionName: randomCollectionName,
+      });
+    }
+
+    return cardData;
+  };
+
+  const cardData = generateCardData(cardsToShow);
 
   return (
-    <div className="container mx-auto">
-      <div className="flex flex-wrap -mx-4">
-        {cardData.map((card, index) => (
-          <div key={index} className="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
-            <Card
-              artistName={card.artistName}
-              imageUrl={card.imageUrl}
-              price={card.price}
-            />
-          </div>
-        ))}
-      </div>
-    </div>
+    <div className="card-container"> 
+    {cardData.map((card, index) => (
+      <Card
+        key={index}
+        artistName={card.artistName}
+        imageUrl={card.imageUrl}
+        price={card.price}
+        stx={card.stx}
+        collectionName={card.collectionName}
+      />
+    ))}
+</div>
   );
 };
 
-export default ExampleComponent;
+export default NFT;

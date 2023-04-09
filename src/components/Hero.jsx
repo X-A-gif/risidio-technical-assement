@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
+import Collection from './Collection'
+
 import banner from '../assets/pollock(1).jpg'
 import icon from '../assets/icon.png'
 
@@ -28,13 +30,19 @@ const Hero = () => {
   const handleShowMore = () => {
     setShowMore(!showMore);
   };
+  
+  const [activeButton, setActiveButton] = useState("items");
+
+  const handleButtonClick = (button) => {
+    setActiveButton(button);
+  };
 
   return (
     <div>
       <header>
         <div className='relative'>
           <div>
-            <h1 style={heroHeadStyles}>Collection Name</h1>
+            <div style={heroHeadStyles}><Collection /></div>
             <img className='banner w-full' src={banner}/>
           </div>
           <img className='ml-auto mr-auto -mt-10' src={icon} alt="" />
@@ -77,9 +85,28 @@ const Hero = () => {
           <ul className={`grid gap-4 ${screenWidth < 925 ? 'grid-cols-1' : 'grid-cols-3'}`}>
               <li className='border-r-2'>Floor Price <br /> 2,835 STX</li>
               <li className='border-r-2'>Owners <br /> 1,236</li>
-              <li className='border-r-2'>Items <br /> 2,500</li>
+              <li >Items <br /> 2,500</li>
           </ul>
       </section>
+
+      <div className='mt-10 border-b-2 w-2/3 mx-auto'>
+       <div className='my-4'>
+        <button
+            className={activeButton === "items" ? "mr-4 text-green-500" : "mr-4"}
+            onClick={() => handleButtonClick("items")}
+          >
+              Items
+          </button>
+
+          <button
+            className={activeButton === "activity" ? "text-green-500" : ""}
+            onClick={() => handleButtonClick("activity")}
+          >
+              Activity
+          </button>
+       </div>
+      </div>
+
     </div>
   )
 }
