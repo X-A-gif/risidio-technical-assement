@@ -6,10 +6,14 @@ const NFT = () => {
 
   useEffect(() => {
     const handleResize = () => {
+      if (window.innerWidth < 1200) {
+        setCardsToShow(6); 
+      }
       if (window.innerWidth < 428) {
-        setCardsToShow(3);
-      } else {
-        setCardsToShow(12);
+        setCardsToShow(3); 
+      }
+      else {
+        setCardsToShow(12); 
       }
     };
 
@@ -46,18 +50,18 @@ const NFT = () => {
   const cardData = generateCardData(cardsToShow);
 
   return (
-    <div className="card-container"> 
-    {cardData.map((card, index) => (
-      <Card
-        key={index}
-        artistName={card.artistName}
-        imageUrl={card.imageUrl}
-        price={card.price}
-        stx={card.stx}
-        collectionName={card.collectionName}
-      />
-    ))}
-</div>
+    <div className="card-container" style={{ display: "flex", flexDirection: window.innerWidth < 1200 ? "column" : "row", flexWrap: "wrap" }}>
+      {cardData.map((card, index) => (
+        <Card
+          key={index}
+          artistName={card.artistName}
+          imageUrl={card.imageUrl}
+          price={card.price}
+          stx={card.stx}
+          collectionName={card.collectionName}
+        />
+      ))}
+    </div>
   );
 };
 

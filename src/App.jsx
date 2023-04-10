@@ -1,9 +1,5 @@
 import React from 'react'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-import Hero from './components/Hero'
-import Card from './components/Card'
-import NFT from "./components/NFT";
+import { Navbar, Footer, Hero, Card, NFT } from './components';
 
 import './app.css'
 
@@ -13,9 +9,7 @@ const App = () => {
    <div id='app'>
     <Navbar />
     <Hero />
-      <div className='flex justify-center items-center '>
-        <NFT />
-      </div>
+   
 
       <div className='absolute w-full'>
         <Footer />

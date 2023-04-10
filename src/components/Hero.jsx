@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 
 import Collection from './Collection'
+import NFT from './NFT'
+import BackToTop from './BackToTop'
 
 import banner from '../assets/pollock(1).jpg'
 import icon from '../assets/icon.png'
@@ -52,15 +54,15 @@ const Hero = () => {
       <section className="bg-transparent py-2">
         <div className="max-w-screen-lg mx-auto">
           <h2 className="text-xl font-normal text-center mb-4">Artist Name</h2>
-          <div className="text-center">
-            <p className={screenWidth < 640 ? 'text-sm' : 'text-lg'}>
+          <div className="text-center font-semibold">
+            <p className={screenWidth < 640 ? 'text-sm mx-12' : 'text-md mx-24'}>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda ab repudiandae, modi provident minus,
               quidem deserunt maiores commodi necessitatibus voluptatibus alias dolores ratione at suscipit voluptates
               unde quo perferendis repellat?
             </p>
             <br />
             {showMore ? (
-              <p className={screenWidth < 640 ? 'text-sm' : 'text-lg'}>
+              <p className={screenWidth < 640 ? 'text-sm mx-12' : 'text-md mx-24'}>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda ab repudiandae, modi provident minus,
                 quidem deserunt maiores commodi necessitatibus voluptatibus alias dolores ratione at suscipit voluptates
                 unde quo perferendis repellat? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda ab repudiandae, modi provident minus,
@@ -69,7 +71,7 @@ const Hero = () => {
               </p>
             ) : null}
             {showMore ? (
-              <button onClick={handleShowMore} className="text-blue-500">
+              <button onClick={handleShowMore} className="text-blue-500 mt-4">
                 Hidde
               </button>
             ) : (
@@ -81,12 +83,12 @@ const Hero = () => {
         </div>
       </section>
 
-      <section className={`border-2 ${screenWidth < 925 ? 'block' : 'w-1/3'} mx-auto rounded-lg bg-gray-100 py-4`}>
-          <ul className={`grid gap-4 ${screenWidth < 925 ? 'grid-cols-1' : 'grid-cols-3'}`}>
-              <li className='border-r-2'>Floor Price <br /> 2,835 STX</li>
-              <li className='border-r-2'>Owners <br /> 1,236</li>
-              <li >Items <br /> 2,500</li>
-          </ul>
+      <section className={`border-none ${screenWidth < 925 ? 'flex justify-center border-none rounded-xl w-8/12 h-96' : 'w-1/3'} mx-auto rounded-xl bg-gray-100 py-4`} >
+        <ul className={`grid gap-4 ${screenWidth < 925 ? 'grid-cols-1 mt-10' : 'grid-cols-3'}`}>
+          <li className={`${screenWidth < 925 ? 'border-b-2 mx-auto' : 'border-r-2'}`}>Floor Price <br /> 2,835 STX</li>
+          <li className={`${screenWidth < 925 ? 'border-b-2 mx-auto' : 'border-r-2'}`}>Owners <br /> 1,236</li>
+          <li >Items <br /> 2,500</li>
+        </ul>
       </section>
 
       <div className='mt-10 border-b-2 w-2/3 mx-auto'>
@@ -105,6 +107,14 @@ const Hero = () => {
               Activity
           </button>
        </div>
+      </div>
+
+       <div className='flex justify-center items-center '>
+        <NFT />
+      </div>
+
+      <div className='my-10'>
+        <BackToTop />
       </div>
 
     </div>
